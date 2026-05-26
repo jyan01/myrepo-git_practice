@@ -1,0 +1,21 @@
+#!/bin/bash
+
+read filename
+
+if [ ! -e "$filename" ]; then
+	echo "$filename 은(는) 존재하지 않습니다."
+elif [ -h "$filename" ]; then
+    echo "$filename 은(는) 심볼릭링크 입니다."
+elif [ -d "$filename" ]; then
+    echo "$filename 은(는) 디렉토리 입니다."
+elif [ -c "$filename" ]; then
+	echo "$filename 은(는) 문자장치 입니다."
+elif [ -b "$filename" ]; then
+    echo "$filename 은(는) 블록장치 입니다."
+elif [ -p "$filename" ]; then
+    echo "$filename 은(는) 파이프 입니다."
+elif [ -S "$filename" ]; then
+    echo "$filename 은(는) 소켓 입니다."
+elif [ -f "$filename" ]; then
+    echo "$filename 은(는) 보통파일 입니다."
+fi
